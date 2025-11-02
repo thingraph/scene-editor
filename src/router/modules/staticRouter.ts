@@ -48,7 +48,7 @@ export const staticRouter: RouteRecordRaw[] = [
           title: 'about',
           parent: 'about'
         },
-        component: () => import('@/views/about/aboutView.vue')
+        component: () => import('@/views/about/AboutView.vue')
       }
     ]
   },
