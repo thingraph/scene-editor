@@ -2,12 +2,16 @@
   <div class="model-editor-layout">
     <TopMenu :menus="menus" @select="onMenuSelect" />
     <div id="myCanvas" class="viewer-container"></div>
+    <AboutDialog v-model:open="showAboutDialog" />
+    <FileFormatsDialog v-model:open="showFormatsDialog" />
   </div>
 </template>
 
 <script lang="ts" setup>
 import { ref, onMounted, onBeforeUnmount, nextTick } from 'vue';
 import TopMenu from '@/components/TopMenu.vue';
+import AboutDialog from '@/components/AboutDialog.vue';
+import FileFormatsDialog from '@/components/FileFormatsDialog.vue';
 import { Viewer3d, type Viewer3dConfig } from '@x-viewer/core';
 import { 
     AxisGizmoPlugin, 
@@ -42,6 +46,8 @@ let resizeHandler: (() => void) | null = null;
 
 // file input ref
 const fileInput = ref<HTMLInputElement | null>(null);
+const showAboutDialog = ref(false);
+const showFormatsDialog = ref(false);
 
 const menus = [
   { label: 'File', key: 'file', items: [{ label: 'New', key: 'file:new' }, { label: 'Open', key: 'file:open' }, { label: 'Export', key: 'file:export' }] },
@@ -127,10 +133,10 @@ function onMenuSelect(payload: { label: string; key: string }) {
       exportPlugin?.showExportPanel(ExportFormats.Glb, "scene");
       break;
     case 'help:about':
-      console.log('About');
+      showAboutDialog.value = true;
       break;
     case 'help:formats':
-      console.log('File formats');
+      showFormatsDialog.value = true;
       break;
     default:
       console.log('menu select', payload);

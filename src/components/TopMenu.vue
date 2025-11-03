@@ -17,7 +17,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, onMounted, onBeforeUnmount, defineProps, defineEmits } from 'vue';
+import { ref, onMounted, onBeforeUnmount } from 'vue';
 
 type SubItem = { label: string; key: string };
 type Menu = { label: string; key: string; items?: SubItem[] };
