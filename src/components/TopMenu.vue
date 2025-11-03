@@ -73,7 +73,6 @@ onBeforeUnmount(() => {
 
 <style scoped>
 .top-menu {
-  position: relative;
   width: 100%;
   background: #ffffff;
   color: #222;

@@ -51,9 +51,10 @@ const isCollapse = computed(() => AppStore.isCollapse)
       min-width: 0;
       position: relative;
       .ant-layout-content {
-        overflow: scroll;
-        height: calc(100% - 40px);
-        padding-bottom: 40px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        height: calc(100% - 80px);
+        // padding-bottom: 40px;
       }
     }
   }

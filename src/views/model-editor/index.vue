@@ -1,6 +1,8 @@
 <template>
-  <TopMenu :menus="menus" @select="onMenuSelect" />
-  <div id="myCanvas" class="viewer-container"></div>
+  <div class="model-editor-layout">
+    <TopMenu :menus="menus" @select="onMenuSelect" />
+    <div id="myCanvas" class="viewer-container"></div>
+  </div>
 </template>
 
 <script lang="ts" setup>
@@ -145,11 +147,20 @@ onBeforeUnmount(() => {
 </script>
 
 <style scoped>
-/* top menu is in normal flow; viewer container sits below it automatically. */
+.model-editor-layout {
+  /* Fill viewport except footer (footer height is 40px, CloudFooter uses absolute bottom:0) */
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 40px);
+  box-sizing: border-box;
+}
+
+/* viewer should take remaining space under TopMenu and not cause vertical scroll */
 .viewer-container {
   width: 100%;
-  height: calc(100vh - 30px);
-  min-height: 480px;
+  flex: 1 1 auto;
+  min-height: 0; /* allow flex child to shrink correctly */
+  overflow: hidden; /* prevent internal vertical scroll */
   box-sizing: border-box;
 }
 </style>
