@@ -1,0 +1,12 @@
+import { DxfBaseReader, IGroup } from "../DxfBaseReader";
+import IGeometry, { IEntity, IPoint } from './geomtry';
+import { DwgRayEntity } from '@mlightcad/libredwg-web';
+export interface IRayEntity extends IEntity {
+    vertices: IPoint[];
+    directionVector: IPoint;
+}
+export default class Ray implements IGeometry {
+    ForEntityName: "RAY";
+    parseEntity(scanner: DxfBaseReader, curr: IGroup): IRayEntity;
+    parseDwgEntity(entity: DwgRayEntity, newEntity: IRayEntity): void;
+}
