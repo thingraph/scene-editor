@@ -27,11 +27,13 @@ const publicPathMap: { [key: string]: string } = {
 const getPublicPath = (mode: string) => {
   const OssUrl =
     mode === "production"
-      ? "https://xxxxxxx.com/"
+      ? "https://sceneeditor.thingraph.site/"
       : "https://xxxxxxx.com/";
-  const base = `${OssUrl}/${name}/${publicPathMap[mode]}/`;
+  const base = mode === "production"
+    ? `${OssUrl}/`
+    : `${OssUrl}/${name}/${publicPathMap[mode]}/`;
   return base;
-  
+
   // 测试环境: vue3-antd4-admin，生产环境:/
   return mode === "test" ? '/vue3-antd4-admin' : '/'
 };
@@ -73,7 +75,7 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
       }),
       // useDevMode 开启时与热更新插件冲突,使用变量切换
       // 如果是在主应用中加载子应用vite,必须打开这个,否则 vite 加载不成功, 单独运行没影响
-      qiankun(name, { 
+      qiankun(name, {
         useDevMode: true
       }),
       Unocss(),
