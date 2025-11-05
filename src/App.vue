@@ -18,6 +18,8 @@
 </template>
 
 <script setup lang="ts">
+import { onBeforeMount, ref } from 'vue'
+import { useRoute } from 'vue-router'
 import enUS from 'ant-design-vue/es/locale/en_US'
 import dayjs from 'dayjs'
 import 'dayjs/locale/en'
