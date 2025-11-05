@@ -10,6 +10,7 @@
 </template>
 
 <script setup lang="ts" name="500">
+import { useRouter } from 'vue-router'
 import { HOME_URL } from '@/config/index'
 const router = useRouter()
 </script>

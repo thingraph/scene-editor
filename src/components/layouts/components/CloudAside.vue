@@ -3,7 +3,8 @@ import ChildMenu from './ChildMenu.vue'
 import { staticRouter } from '@/router/modules/staticRouter'
 import { useAppStore } from '@/stores/modules/app'
 import { isUrl } from '@/utils/is'
-import type { RouteRecordRaw } from 'vue-router'
+import { useRouter, useRoute, type RouteRecordRaw } from 'vue-router'
+import { ref, computed, watch } from 'vue'
 
 const router = useRouter()
 const route = useRoute()

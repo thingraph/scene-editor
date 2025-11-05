@@ -39,6 +39,7 @@
 </template>
 
 <script setup lang="ts">
+import { useRouter } from 'vue-router'
 // import { PoweroffOutlined } from '@ant-design/icons-vue'
 import { useUserStore } from '@/stores/modules/user'
 // import { UserOutlined } from '@ant-design/icons-vue'
