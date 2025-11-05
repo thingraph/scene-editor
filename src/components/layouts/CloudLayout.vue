@@ -3,6 +3,7 @@ import { useAppStore } from '@/stores/modules/app'
 import CloudHeader from './components/CloudHeader.vue'
 import CloudAside from './components/CloudAside.vue'
 import CloudFooter from './components/CloudFooter.vue'
+import { ref, computed } from 'vue'
 
 const cloudAsideRef = ref<{ isCollapse: boolean }>()
 const AppStore = useAppStore()
