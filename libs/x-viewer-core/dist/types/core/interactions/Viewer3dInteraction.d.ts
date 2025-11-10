@@ -12,6 +12,8 @@ export declare class Viewer3dInteraction extends Interaction {
     private isSelected;
     selectedObject?: Object3D | Drawable;
     constructor(viewer: Viewer3d);
+    private onObjectSelected;
+    private onObjectDeselected;
     private isCloseToLastPosition;
     private isDoubleClick;
     private handle_pointerdown;

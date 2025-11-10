@@ -4,7 +4,6 @@ import { IUploader } from "./IUploader";
  * @internal
  */
 export declare class LocalModelUploader extends IUploader {
-    private viewer;
     readonly defaultModelConfig: ModelConfig;
     constructor(viewer: Viewer3d, elementId?: string);
     protected formats(): string[];

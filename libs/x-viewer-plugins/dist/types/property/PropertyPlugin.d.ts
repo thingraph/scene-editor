@@ -32,11 +32,21 @@ export declare class PropertyPlugin extends Plugin<PropertyPluginEvents> {
     protected basePanel?: BasePanel;
     protected container?: HTMLDivElement;
     protected content?: HTMLDivElement;
-    protected tabsBar?: HTMLDivElement;
     protected details?: HTMLDivElement;
-    protected tabs: HTMLDivElement[];
     protected selectedObject: THREE.Object3D | undefined;
     protected lastActiveTabIdx: number;
+    protected nodePanel?: HTMLDivElement;
+    protected nodeModeButtons?: {
+        local: HTMLButtonElement;
+        global: HTMLButtonElement;
+    };
+    protected nodeInputs?: {
+        translation: HTMLInputElement[];
+        rotation: HTMLInputElement[];
+        scale: HTMLInputElement[];
+    };
+    protected geometrySection?: HTMLDivElement;
+    protected boundingBoxSection?: HTMLDivElement;
     constructor(viewer: Viewer3d, cfg?: PropertyPluginConfig);
     protected updateContent(): void;
     private initLocalization;
@@ -54,6 +64,13 @@ export declare class PropertyPlugin extends Plugin<PropertyPluginEvents> {
     private clearDetails;
     private renderMaterial;
     private renderNode;
+    protected updateNodeInputs(target: THREE.Object3D): void;
+    protected applyNodeInputs(target: THREE.Object3D): void;
+    private updateGeometryInfo;
+    private updateBoundingBoxInfo;
+    private getVertexCount;
+    private getTriangleCount;
+    private getGlobalSize;
     private renderProperty;
 }
 export {};

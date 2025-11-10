@@ -1,4 +1,4 @@
-import { Viewer3d, Plugin, PluginConfig } from "@x-viewer/core";
+import { Viewer3d, Plugin, PluginConfig, THREE } from "@x-viewer/core";
 import { BasePanel } from "@x-viewer/ui";
 /**
  * Tree view plugin config.
@@ -32,17 +32,21 @@ export declare class TreeViewPlugin extends Plugin<TreeViewPluginEvents> {
     protected basePanel?: BasePanel;
     protected container?: HTMLDivElement;
     protected content?: HTMLDivElement;
+    protected lastHighlightedObject?: THREE.Object3D;
     constructor(viewer: Viewer3d, cfg?: TreeViewPluginConfig);
     protected updateContent(): void;
     private initLocalization;
     setVisible(visible: boolean): void;
     isVisible(): boolean;
     protected onModelLoadOrRemove: () => void;
+    protected onObjectSelected: (evt: any) => void;
+    protected onObjectDeselected: (evt: any) => void;
     private onClose;
     destroy(): void;
     protected addContent(): void;
     private buildTreeForNodeRecursive;
     private selectTreeNodeAndHighlightSceneObject;
+    private highlightTreeNodeBySceneObject;
     private highlightSceneObject;
     private focusSceneObject;
     /**

@@ -4,7 +4,6 @@ import { IUploader } from "./IUploader";
  * @internal
  */
 export declare class LocalDxfUploader extends IUploader {
-    private viewer;
     private pdfWorker;
     onSuccess?: (event: any) => void;
     readonly defaultModelConfig: ModelConfig;
