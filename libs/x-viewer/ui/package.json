@@ -1,0 +1,40 @@
+{
+  "name": "@x-viewer/ui",
+  "version": "0.8.0",
+  "description": "The first typescript example for the Monorepo example",
+  "author": "x-viewer",
+  "license": "MIT",
+  "keywords": [
+    "x-viewer",
+    "BIM",
+    "ui",
+    "typescript"
+  ],
+  "repository": {
+    "type": "git"
+  },
+  "files": [
+    "package.json",
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
+  "type": "module",
+  "main": "dist/index.esm.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/types/index.d.ts",
+  "dependencies": {
+    "@x-viewer/core": "^0.8.0"
+  },
+  "scripts": {
+    "build": "pnpm run clean:build && pnpm run data-type && rollup -c --environment BUILD:production",
+    "clean:build": "rimraf ./dist",
+    "data-type": "tsc --project tsconfig.bundle.json && tsc-alias -p tsconfig.bundle.json",
+    "dev": "pnpm run data-type && rollup -c -w",
+    "lint": "eslint . --ext .js,.ts",
+    "lint:fix": "pnpm lint --fix",
+    "format": "prettier --check .",
+    "format:fix": "prettier --write .",
+    "lint-staged": "lint-staged"
+  }
+}

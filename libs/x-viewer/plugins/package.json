@@ -1,0 +1,56 @@
+{
+  "name": "@x-viewer/plugins",
+  "version": "0.8.0",
+  "description": "The first typescript example for the Monorepo example",
+  "author": "x-viewer",
+  "license": "MIT",
+  "keywords": [
+    "ifc",
+    "bim",
+    "gis",
+    "cad",
+    "viewer",
+    "three.js",
+    "typescript"
+  ],
+  "repository": {
+    "type": "git"
+  },
+  "files": [
+    "package.json",
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
+  "type": "module",
+  "main": "dist/index.esm.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/types/index.d.ts",
+  "dependencies": {
+    "@types/lodash": "^4.14.165",
+    "clipper-lib": "^6.4.2",
+    "dat.gui": "^0.7.7",
+    "lodash": "^4.17.20",
+    "mitt": "^3.0.0",
+    "pdfjs-dist": "3.8.162",
+    "screenfull": "^6.0.0",
+    "stats.js": "^0.17.0",
+    "@x-viewer/core": "^0.8.0",
+    "@x-viewer/ui": "^0.0.1"
+  },
+  "devDependencies": {
+    "@types/dat.gui": "^0.7.6",
+    "@types/stats.js": "^0.17.3"
+  },
+  "scripts": {
+    "build": "pnpm run clean:build && pnpm run data-type && rollup -c --environment BUILD:production",
+    "clean:build": "rimraf ./dist",
+    "data-type": "tsc --project tsconfig.bundle.json && tsc-alias -p tsconfig.bundle.json",
+    "dev": "pnpm run data-type && rollup -c -w",
+    "lint": "eslint . --ext .js,.ts",
+    "lint:fix": "pnpm lint --fix",
+    "format": "prettier --check .",
+    "format:fix": "prettier --write .",
+    "lint-staged": "lint-staged"
+  }
+}

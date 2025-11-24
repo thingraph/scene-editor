@@ -22,9 +22,9 @@
   },
   "dependencies": {
     "@vueuse/core": "^10.3.0",
-    "@x-viewer/core": "file:libs\\x-viewer-core",
-    "@x-viewer/plugins": "file:libs\\x-viewer-plugins",
-    "@x-viewer/ui": "file:libs\\x-viewer-ui",
+    "@x-viewer/core": "file:libs\\x-viewer\\core",
+    "@x-viewer/plugins": "file:libs\\x-viewer\\plugins",
+    "@x-viewer/ui": "file:libs\\x-viewer\\ui",
     "ant-design-vue": "^4.0.0",
     "axios": "^1.4.0",
     "dayjs": "^1.11.9",
@@ -68,9 +68,9 @@
   },
   "pnpm": {
     "overrides": {
-      "@x-viewer/core": "file:./libs/x-viewer-core",
-      "@x-viewer/ui": "file:./libs/x-viewer-ui",
-      "@x-viewer/plugins": "file:./libs/x-viewer-plugins"
+      "@x-viewer/core": "file:./libs/x-viewer/core",
+      "@x-viewer/ui": "file:./libs/x-viewer/ui",
+      "@x-viewer/plugins": "file:./libs/x-viewer/plugins"
     }
   }
 }
